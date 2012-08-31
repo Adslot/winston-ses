@@ -19,11 +19,14 @@ exports.Ses = winston.transports.Ses = class Ses extends winston.Transport
   log: (level, msg, meta, callback) ->
     if (@silent)
       return callback null, true
+    msg = if typeof msg is 'object' then JSON.stringify(msg, null, 2) else msg
+    meta = if typeof msg is 'object' then JSON.stringify(msg, null, 2) else meta
     @ses.send
       from: @sesFrom
       to: if Array.isArray(@sesTo) then @sesTo else [@sesTo]
       replyTo: [@sesFrom]
       subject: @sesSubject
       body:
-        text: "#{JSON.stringify(msg, null, 2)}\n\n\n#{JSON.stringify(meta, null, 2)}"
+        text: "#{msg}\n\n\n#{meta}"
+        html: "<pre>#{msg}\n\n\n#{meta}</pre>"
     callback null, true
