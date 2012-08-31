@@ -32,7 +32,7 @@
         replyTo: [this.sesFrom],
         subject: this.sesSubject,
         body: {
-          html: "" + (JSON.stringify(msg)) + "\n\n\n" + (JSON.stringify(meta))
+          text: "" + (JSON.stringify(msg, null, 2)) + "\n\n\n" + (JSON.stringify(meta, null, 2))
         }
       });
       return callback(null, true);

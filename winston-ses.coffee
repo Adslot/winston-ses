@@ -25,5 +25,5 @@ exports.Ses = winston.transports.Ses = class Ses extends winston.Transport
       replyTo: [@sesFrom]
       subject: @sesSubject
       body:
-        html: "#{JSON.stringify(msg)}\n\n\n#{JSON.stringify(meta)}"
+        text: "#{JSON.stringify(msg, null, 2)}\n\n\n#{JSON.stringify(meta, null, 2)}"
     callback null, true
