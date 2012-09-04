@@ -2,7 +2,7 @@
   "author": "Adslot (http://adslot.com)",
   "name": "winston-ses",
   "description": "Winston transport using Amazon SES",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/adslot/winston-ses",
   "repository": {
     "url": "https://github.com/adslot/winston-ses.git"
