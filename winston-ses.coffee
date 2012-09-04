@@ -20,7 +20,7 @@ exports.Ses = winston.transports.Ses = class Ses extends winston.Transport
     if (@silent)
       return callback null, true
     msg = if typeof msg is 'object' then JSON.stringify(msg, null, 2) else msg
-    meta = if typeof msg is 'object' then JSON.stringify(msg, null, 2) else meta
+    meta = if typeof meta is 'object' then JSON.stringify(meta, null, 2) else meta
     @ses.send
       from: @sesFrom
       to: if Array.isArray(@sesTo) then @sesTo else [@sesTo]

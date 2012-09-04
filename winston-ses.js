@@ -27,7 +27,7 @@
     Ses.prototype.log = function(level, msg, meta, callback) {
       if (this.silent) return callback(null, true);
       msg = typeof msg === 'object' ? JSON.stringify(msg, null, 2) : msg;
-      meta = typeof msg === 'object' ? JSON.stringify(msg, null, 2) : meta;
+      meta = typeof meta === 'object' ? JSON.stringify(meta, null, 2) : meta;
       this.ses.send({
         from: this.sesFrom,
         to: Array.isArray(this.sesTo) ? this.sesTo : [this.sesTo],
